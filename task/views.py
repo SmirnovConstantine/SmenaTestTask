@@ -101,4 +101,4 @@ def get_pdf_for_check(request, **kwargs):
             Check.objects.filter(id=kwargs['check']).update(status='p')  # Обновляем статус на printed
         except Exception:
             return errors.errorResponse("данного чека не существует")
-        return checks[0].pdf_file
+        return HttpResponse(checks[0].pdf_file)
